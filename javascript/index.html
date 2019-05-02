@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Javascript - MyCode</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Javascript";
+    var mkdocs_page_input_path = "javascript.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> MyCode</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">My Codes</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Javascript</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#my-javascript-codes">My Javascript Codes</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#apex-loading">Apex Loading</a></li>
+        
+            <li><a class="toctree-l4" href="#number-pad">Number Pad</a></li>
+        
+            <li><a class="toctree-l4" href="#apexserverprocess">apex.server.process</a></li>
+        
+            <li><a class="toctree-l4" href="#array-comparsion">Array Comparsion</a></li>
+        
+            <li><a class="toctree-l4" href="#print-html-element">Print HTML Element</a></li>
+        
+            <li><a class="toctree-l4" href="#promise">Promise</a></li>
+        
+            <li><a class="toctree-l4" href="#download-csv">Download CSV</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../plsql/">PLSQL</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../css/">CSS</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Statements</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../statement_plsql/">SQL</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">MyCode</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>My Codes &raquo;</li>
+        
+      
+    
+    <li>Javascript</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="my-javascript-codes">My Javascript Codes</h1>
+<p>My <a href="https://github.com/marvinamorim/Developer/tree/master/JavaScript">Javascript Repository</a>.</p>
+<h2 id="apex-loading">Apex Loading</h2>
+<p>Object to add/remove loading from apex.</p>
+<pre><code>let isLoading=false;
+let load = {
+    on: function() {
+        if (isLoading===true){
+            console.log("Loading already on.");
+        }
+        else setTimeout(function(){
+            $wP = apex.widget.waitPopup();
+            isLoading = true;
+        },100);
+    },
+    off: function() {
+        if (isLoading===true) {
+            setTimeout(function(){
+                $wP.remove();
+                isLoading = false;
+            },100);
+        } else {
+            console.log("Loading not on.")
+        }
+    }
+}
+</code></pre>
+<h2 id="number-pad">Number Pad</h2>
+<p>Prototype to give leading 0's to a number</p>
+<pre><code>Number.prototype.pad = function(size) {
+    var s = String(this);
+    while (s.length &lt; (size || 2)) {s = "0" + s;}
+    return s;
+}
+</code></pre>
+<h2 id="apexserverprocess">apex.server.process</h2>
+<p>How to use an apex.server.process to call an Ajax Callback Process from the server, with exemple of it's parameters.</p>
+<pre><code>let num = 1,
+    str = "teste",
+    arr = [1,2,3,4],
+    pageitems: "#P1_ITEM1, #P1_ITEM2, #P3_ITEM3";
+apex.server.process('AJAXCALLBACK_NAME', {pageItems: pageitems, x01:num, x02:str, f01:arr}, {dataType:"text"})
+.then(function(data) {
+    console.log(data);
+});
+</code></pre>
+<h4 id="things-to-know">Things to know</h4>
+<p>AJAXCALLBACK_NAME<br>
+    <code>Name of the PLSQL process created that will return a value to the 'data' variable.</code><br>
+pageItems<br>
+    <code>String with the Apex items that will be submited to the process called. Each item must have the '#' before it's name, and for multiple items, separate them with a comma.</code><br>
+x01<br>
+    <code>You can pass up to 10 variables as x01..x10 to the callback.</code><br>
+f01<br>
+    <code>You can pass up to 10 array of variables as f01..f20 to the callback.</code><br>
+dataType<br>
+    <code>Type of variable returned by the callback. Remove this option to recieve an object.</code></p>
+<h2 id="array-comparsion">Array Comparsion</h2>
+<p>Check if the value of every index is equal between arrays.</p>
+<pre><code>function isArrEqual(arr1, arr2) {
+    for (let i=0;i&lt;arr1.length;i++) {
+        if (arr1[i]!=arr2[i]) {
+            return false
+        }
+    }
+    return true
+}
+</code></pre>
+<h2 id="print-html-element">Print HTML Element</h2>
+<p>Print the HTML element with givin ID.</p>
+<pre><code>function Print(el) {
+    let html='&lt;html&gt;&lt;body&gt;';
+    html+= document.getElementById(el).innerHTML;
+    html+='&lt;/body&gt;&lt;/html&gt;';
+    var printWin = window.open();
+    printWin.document.write(html);
+    printWin.document.close();
+    printWin.focus();
+    printWin.print();
+    printWin.close();
+}
+</code></pre>
+<h2 id="promise">Promise</h2>
+<p>A simple example about how to use a promise.</p>
+<pre><code>function NewPromise(value) { 
+    return new Promise ((resolve, reject)=&gt; {
+        //Do the process here, and use 'resolve' to return the promise, or reject to fail the promise
+        if (value==1) {
+            resolve(true);
+        } else {
+            reject(false);
+        }
+    }); 
+}
+</code></pre>
+<h5 id="the-use-of-a-promise">The use of a promise:</h5>
+<pre><code>NewPromise(5)
+.then(function(res){
+    console.log(res)
+}).catch(function(err){
+    console.log(err)
+});
+</code></pre>
+<h2 id="download-csv">Download CSV</h2>
+<p>Uses an array of objects to download a CSV file formated with some options.</p>
+<h5 id="-function-to-convert-the-array-to-string">- Function to Convert the array to string</h5>
+<p>This function uses the argument passed to the download function to generate the string.
+The argument is an object that have the following keys:</p>
+<ul>
+<li>filename: String. The name of the file to be download. This string need to have the extension to be download. Ex: <code>'report.csv'</code>, <code>'report.txt'</code>.</li>
+<li>arr: Array of objects. The array of objects to be converted. Ex: <code>[{"a":1,"b":2,"c":3},{"a":4,"b":5,"c":6},{"a":7,"b":8,"c":9}]</code>.</li>
+<li>header: <code>True</code> or <code>False</code>. If the header of the columns should be included in the file or not.</li>
+<li>colDelimiter: String. The separator of the values. If no value is given, the standard comma characater <code>','</code> will be used to separate. Ex: <code>','</code>, <code>';'</code>.</li>
+<li>lineDelimiter: String. The separator of the lines. If no value is given, the standard new lines character <code>'\n'</code> will be used. Ex: <code>'\n'</code>, <code>'\r'</code>.</li>
+</ul>
+<h5 id="-download-function">- Download Function</h5>
+<p>Call the functions <code>downloadCSV(object)</code> with an object that have the value for the keys described above.</p>
+<pre><code>function downloadCSV(args) {
+  let data, filename, link, argsConvert;
+  filename = args.filename != undefined ? args.filename : 'file.csv';
+  argsConvert = {
+    name: filename,
+    data: args.arr,
+    header: args.header,
+    colDelimiter: args.colDelimiter != undefined ? args.colDelimiter : ',',
+    lineDelimiter: args.lineDelimiter != undefined ? args.lineDelimiter : '\n'
+  }
+
+  let csv = convertArrayOfObjectsToCSV(argsConvert);
+  if (csv == null) return;
+  if (!csv.match(/^data:text\/csv/i)) {
+    csv = 'data:text/csv;charset=utf-8,' + csv;
+  }
+
+  data = encodeURI(csv);
+  link = document.createElement('a');
+  link.setAttribute('href', data);
+  link.setAttribute('download', filename);
+  link.click();
+}
+
+function convertArrayOfObjectsToCSV(args) {
+  let result, ctr, keys, data;
+  data = args.data || null;
+  if (data == null || !data.length) {
+      return null;
+  }
+  keys = Object.keys(data[0]);
+  result = '';
+  if (args.header) {
+    result += keys.join(args.colDelimiter);
+    result += args.lineDelimiter;
+  }
+
+  data.forEach(function(item) {
+    ctr = 0;
+    keys.forEach(function(key) {
+      if (ctr &gt; 0) result += args.colDelimiter;
+      result += item[key];
+      ctr++;
+    });
+    result += args.lineDelimiter;
+  });
+  return result;
+}
+</code></pre>
+<p>Usage example:</p>
+<pre><code>let argsDownload = {
+    filename: 'report.csv',
+    arr: [{"a":1,"b":2,"c":3},{"a":4,"b":5,"c":6},{"a":7,"b":8,"c":9}],
+    header: true,
+    colDelimiter: ';'
+};
+downloadCSV(argsDownload);
+</code></pre>
+<p>Calling this function with those arguments will download the file 'report.csv', with the content:<br></p>
+<pre><code>a;b;c
+1;2;3
+4;5;6
+7;8;9
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../plsql/" class="btn btn-neutral float-right" title="PLSQL">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../plsql/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
